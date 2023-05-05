@@ -59,7 +59,7 @@ namespace eReaderConverterGUI
                     Log(filename);
                     try
                     {
-                        var bmp = File.ReadAllBytes(filename).Bin2Bmp((int)bitmapMargin.Value);
+                        using var bmp = File.ReadAllBytes(filename).Bin2Bmp((int)bitmapMargin.Value, checkBox1.Checked);
                         var newFilename = Path.ChangeExtension(filename, "bmp");
                         bmp.Save(newFilename);
                         Log($"Save as {newFilename}");
@@ -85,7 +85,7 @@ namespace eReaderConverterGUI
                     Log(filename);
                     try
                     {
-                        var bmp = File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value);
+                        using var bmp = File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value, checkBox1.Checked);
                         var newFilename = Path.ChangeExtension(filename, "bmp");
                         bmp.Save(newFilename);
                         Log($"Save as {newFilename}");
