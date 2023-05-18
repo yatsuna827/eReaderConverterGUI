@@ -9,9 +9,6 @@ namespace eReaderConverterGUI
         {
             InitializeComponent();
 
-            printerBox.Items.AddRange(PrinterSettings.InstalledPrinters.OfType<string>().ToArray());
-
-            printerBox.SelectedIndex = 0;
             convertMode.SelectedIndex = 2;
             printMode.SelectedIndex = 1;
         }
@@ -157,16 +154,16 @@ namespace eReaderConverterGUI
             throw new Exception();
         }
 
-        private void PrinterBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void PrinterSettingButton_Click(object sender, EventArgs e)
         {
-            printDocument1.PrinterSettings.PrinterName = printerBox.Text;
-            foreach (PaperSize ps in printDocument1.PrinterSettings.PaperSizes)
+            //PrintDialogƒNƒ‰ƒX‚Ìì¬
+            var dialog = new PrintDialog
             {
-                paperBox.Items.Add(ps.PaperName);
-            }
+                //PrintDocument‚ðŽw’è
+                Document = printDocument1
+            };
 
-            if (paperBox.Items.Count > 0 && paperBox.SelectedIndex < 0) paperBox.SelectedIndex = 0;
+            dialog.ShowDialog();
         }
-
     }
 }

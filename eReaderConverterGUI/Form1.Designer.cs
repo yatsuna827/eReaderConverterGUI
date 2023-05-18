@@ -46,8 +46,6 @@
             label7 = new Label();
             offsetX = new NumericUpDown();
             label8 = new Label();
-            paperBox = new ComboBox();
-            printerBox = new ComboBox();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             dropAreaPrint = new Panel();
             label6 = new Label();
@@ -55,8 +53,7 @@
             tabPage1 = new TabPage();
             convertMode = new ComboBox();
             tabPage2 = new TabPage();
-            label3 = new Label();
-            label1 = new Label();
+            printerSettingButton = new Button();
             printMode = new ComboBox();
             dropAreaConvert.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -96,7 +93,7 @@
             // 
             // loggerBox
             // 
-            loggerBox.Location = new Point(363, 33);
+            loggerBox.Location = new Point(15, 30);
             loggerBox.Margin = new Padding(6);
             loggerBox.Multiline = true;
             loggerBox.Name = "loggerBox";
@@ -111,7 +108,7 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(bitmapMargin);
             groupBox1.Controls.Add(label4);
-            groupBox1.Location = new Point(15, 15);
+            groupBox1.Location = new Point(599, 15);
             groupBox1.Margin = new Padding(6);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(6);
@@ -174,7 +171,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(384, 245);
+            label12.Location = new Point(380, 181);
             label12.Margin = new Padding(6, 0, 6, 0);
             label12.Name = "label12";
             label12.Size = new Size(62, 32);
@@ -184,7 +181,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(592, 245);
+            label11.Location = new Point(588, 181);
             label11.Margin = new Padding(6, 0, 6, 0);
             label11.Name = "label11";
             label11.Size = new Size(34, 32);
@@ -194,7 +191,7 @@
             // numericUpDown1
             // 
             numericUpDown1.DecimalPlaces = 2;
-            numericUpDown1.Location = new Point(471, 243);
+            numericUpDown1.Location = new Point(467, 179);
             numericUpDown1.Margin = new Padding(6);
             numericUpDown1.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -205,7 +202,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(592, 196);
+            label9.Location = new Point(588, 132);
             label9.Margin = new Padding(6, 0, 6, 0);
             label9.Name = "label9";
             label9.Size = new Size(36, 32);
@@ -214,7 +211,7 @@
             // 
             // offsetY
             // 
-            offsetY.Location = new Point(471, 192);
+            offsetY.Location = new Point(467, 128);
             offsetY.Margin = new Padding(6);
             offsetY.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             offsetY.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
@@ -225,7 +222,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(348, 194);
+            label10.Location = new Point(344, 130);
             label10.Margin = new Padding(6, 0, 6, 0);
             label10.Name = "label10";
             label10.Size = new Size(98, 32);
@@ -235,7 +232,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(592, 145);
+            label7.Location = new Point(588, 81);
             label7.Margin = new Padding(6, 0, 6, 0);
             label7.Name = "label7";
             label7.Size = new Size(36, 32);
@@ -244,7 +241,7 @@
             // 
             // offsetX
             // 
-            offsetX.Location = new Point(471, 141);
+            offsetX.Location = new Point(467, 77);
             offsetX.Margin = new Padding(6);
             offsetX.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             offsetX.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
@@ -255,31 +252,12 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(348, 143);
+            label8.Location = new Point(344, 79);
             label8.Margin = new Padding(6, 0, 6, 0);
             label8.Name = "label8";
             label8.Size = new Size(99, 32);
             label8.TabIndex = 6;
             label8.Text = "Offset X";
-            // 
-            // paperBox
-            // 
-            paperBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            paperBox.FormattingEnabled = true;
-            paperBox.Location = new Point(471, 90);
-            paperBox.Name = "paperBox";
-            paperBox.Size = new Size(426, 40);
-            paperBox.TabIndex = 5;
-            // 
-            // printerBox
-            // 
-            printerBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            printerBox.FormattingEnabled = true;
-            printerBox.Location = new Point(471, 44);
-            printerBox.Name = "printerBox";
-            printerBox.Size = new Size(426, 40);
-            printerBox.TabIndex = 3;
-            printerBox.SelectedIndexChanged += PrinterBox_SelectedIndexChanged;
             // 
             // printDocument1
             // 
@@ -311,8 +289,8 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(15, 259);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -343,9 +321,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(label1);
-            tabPage2.Controls.Add(printerBox);
+            tabPage2.Controls.Add(printerSettingButton);
             tabPage2.Controls.Add(label12);
             tabPage2.Controls.Add(printMode);
             tabPage2.Controls.Add(label10);
@@ -356,7 +332,6 @@
             tabPage2.Controls.Add(label9);
             tabPage2.Controls.Add(offsetY);
             tabPage2.Controls.Add(numericUpDown1);
-            tabPage2.Controls.Add(paperBox);
             tabPage2.Controls.Add(offsetX);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
@@ -366,26 +341,15 @@
             tabPage2.Text = "印刷";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // printerSettingButton
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(362, 47);
-            label3.Margin = new Padding(6, 0, 6, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(84, 32);
-            label3.TabIndex = 16;
-            label3.Text = "プリンタ";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Location = new Point(384, 90);
-            label1.Margin = new Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(62, 32);
-            label1.TabIndex = 15;
-            label1.Text = "用紙";
+            printerSettingButton.Location = new Point(708, 233);
+            printerSettingButton.Name = "printerSettingButton";
+            printerSettingButton.Size = new Size(198, 76);
+            printerSettingButton.TabIndex = 17;
+            printerSettingButton.Text = "プリンタ設定";
+            printerSettingButton.UseVisualStyleBackColor = true;
+            printerSettingButton.Click += PrinterSettingButton_Click;
             // 
             // printMode
             // 
@@ -437,8 +401,6 @@
         private NumericUpDown bitmapMargin;
         private Label label4;
         private CheckBox bitmap2x;
-        private ComboBox printerBox;
-        private ComboBox paperBox;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private Panel dropAreaPrint;
         private Label label6;
@@ -457,7 +419,6 @@
         private ComboBox convertMode;
         private TabPage tabPage2;
         private ComboBox printMode;
-        private Label label3;
-        private Label label1;
+        private Button printerSettingButton;
     }
 }
