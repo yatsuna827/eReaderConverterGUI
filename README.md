@@ -1,8 +1,9 @@
 # eReaderConverterGUI
 
-![Screenshot](https://user-images.githubusercontent.com/45278736/236398565-b5e39e8a-fa63-4a51-baa5-62bd1ed90bea.png)
+![Screenshot](https://github.com/yatsuna827/eReaderConverterGUI/assets/45278736/59ca3786-4236-432d-b779-068af84c5e34)
 
 ## Overview
+
 バイナリファイルをカードe / カードe+用のドットコードに。
 ドラッグ&ドロップで簡単に使えるGUIアプリケーションです。
 
