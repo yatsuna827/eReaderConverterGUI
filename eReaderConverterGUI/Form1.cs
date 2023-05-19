@@ -125,8 +125,16 @@ namespace eReaderConverterGUI
 
             //画像を読み込む
             using var img = GetImage(bitmapFilename);
+
+            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            var w = (int)(img.Width * (double)rate.Value / 100);
+            var h = (int)(img.Height * (double)rate.Value / 100);
+
+            e.Graphics!.PageUnit = GraphicsUnit.Document;
+
             //画像を描画する
-            e.Graphics!.DrawImage(img, (int)offsetX.Value, (int)offsetY.Value, (int)(img.Width * (double)numericUpDown1.Value / 100), (int)(img.Height * (double)numericUpDown1.Value / 100));
+            e.Graphics!.DrawImage(img, (int)offsetX.Value, (int)offsetY.Value, w, h);
             //次のページがないことを通知する
             e.HasMorePages = false;
         }

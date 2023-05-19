@@ -39,7 +39,7 @@
             label4 = new Label();
             label12 = new Label();
             label11 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            rate = new NumericUpDown();
             label9 = new Label();
             offsetY = new NumericUpDown();
             label10 = new Label();
@@ -50,21 +50,21 @@
             dropAreaPrint = new Panel();
             label6 = new Label();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            convertMode = new ComboBox();
             tabPage2 = new TabPage();
             printerSettingButton = new Button();
             printMode = new ComboBox();
+            tabPage1 = new TabPage();
+            convertMode = new ComboBox();
             dropAreaConvert.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bitmapMargin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)rate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)offsetY).BeginInit();
             ((System.ComponentModel.ISupportInitialize)offsetX).BeginInit();
             dropAreaPrint.SuspendLayout();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // dropAreaConvert
@@ -157,6 +157,7 @@
             bitmapMargin.Name = "bitmapMargin";
             bitmapMargin.Size = new Size(110, 39);
             bitmapMargin.TabIndex = 1;
+            bitmapMargin.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // label4
             // 
@@ -188,16 +189,16 @@
             label11.TabIndex = 13;
             label11.Text = "%";
             // 
-            // numericUpDown1
+            // rate
             // 
-            numericUpDown1.DecimalPlaces = 2;
-            numericUpDown1.Location = new Point(467, 179);
-            numericUpDown1.Margin = new Padding(6);
-            numericUpDown1.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(110, 39);
-            numericUpDown1.TabIndex = 12;
-            numericUpDown1.Value = new decimal(new int[] { 25, 0, 0, 0 });
+            rate.DecimalPlaces = 2;
+            rate.Location = new Point(467, 179);
+            rate.Margin = new Padding(6);
+            rate.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
+            rate.Name = "rate";
+            rate.Size = new Size(110, 39);
+            rate.TabIndex = 12;
+            rate.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
             // label9
             // 
@@ -297,28 +298,6 @@
             tabControl1.Size = new Size(928, 369);
             tabControl1.TabIndex = 6;
             // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(convertMode);
-            tabPage1.Controls.Add(dropAreaConvert);
-            tabPage1.Location = new Point(8, 46);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(912, 315);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "変換";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // convertMode
-            // 
-            convertMode.DropDownStyle = ComboBoxStyle.DropDownList;
-            convertMode.FormattingEnabled = true;
-            convertMode.Items.AddRange(new object[] { "BIN → Raw", "BIN → Bitmap", "Raw → Bitmap" });
-            convertMode.Location = new Point(24, 28);
-            convertMode.Name = "convertMode";
-            convertMode.Size = new Size(277, 40);
-            convertMode.TabIndex = 3;
-            // 
             // tabPage2
             // 
             tabPage2.Controls.Add(printerSettingButton);
@@ -331,7 +310,7 @@
             tabPage2.Controls.Add(label11);
             tabPage2.Controls.Add(label9);
             tabPage2.Controls.Add(offsetY);
-            tabPage2.Controls.Add(numericUpDown1);
+            tabPage2.Controls.Add(rate);
             tabPage2.Controls.Add(offsetX);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
@@ -361,6 +340,28 @@
             printMode.Size = new Size(277, 40);
             printMode.TabIndex = 6;
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(convertMode);
+            tabPage1.Controls.Add(dropAreaConvert);
+            tabPage1.Location = new Point(8, 46);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(912, 315);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "変換";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // convertMode
+            // 
+            convertMode.DropDownStyle = ComboBoxStyle.DropDownList;
+            convertMode.FormattingEnabled = true;
+            convertMode.Items.AddRange(new object[] { "BIN → Raw", "BIN → Bitmap", "Raw → Bitmap" });
+            convertMode.Location = new Point(24, 28);
+            convertMode.Name = "convertMode";
+            convertMode.Size = new Size(277, 40);
+            convertMode.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -379,15 +380,15 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)bitmapMargin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)rate).EndInit();
             ((System.ComponentModel.ISupportInitialize)offsetY).EndInit();
             ((System.ComponentModel.ISupportInitialize)offsetX).EndInit();
             dropAreaPrint.ResumeLayout(false);
             dropAreaPrint.PerformLayout();
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -406,7 +407,7 @@
         private Label label6;
         private Label label12;
         private Label label11;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown rate;
         private Label label9;
         private NumericUpDown offsetY;
         private Label label10;
