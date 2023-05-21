@@ -1,5 +1,7 @@
 using eReaderConverter;
 using System.Drawing.Printing;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace eReaderConverterGUI
 {
@@ -84,14 +86,13 @@ namespace eReaderConverterGUI
         }
         private string Raw2Bitmap(string filename)
         {
-            using var bmp = File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked, dotBlur.Checked);
+            using var bmp = File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked);
             var newFilename = Path.ChangeExtension(filename, "bmp");
-            bmp.Save(newFilename);
+            bmp.Save(newFilename, ImageFormat.Bmp);
 
             return newFilename;
         }
 
-        const string TEMP_BITMAP_FILENAME = "./__tmp__.bmp";
         private void DropAreaPrint_DragDrop(object sender, DragEventArgs e)
         {
             if (e is null) return;
@@ -110,11 +111,6 @@ namespace eReaderConverterGUI
                     catch (Exception err)
                     {
                         LogError(err.Message);
-                    }
-                    finally
-                    {
-                        if (File.Exists(TEMP_BITMAP_FILENAME))
-                            File.Delete(TEMP_BITMAP_FILENAME);
                     }
                 }
             }
@@ -142,18 +138,12 @@ namespace eReaderConverterGUI
         {
             if (printMode.SelectedIndex == 0)
             {
-                var temp = File.ReadAllBytes(filename).Bin2Raw().Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked, dotBlur.Checked);
-                temp.Save(TEMP_BITMAP_FILENAME);
-
-                return Image.FromFile(TEMP_BITMAP_FILENAME);
+                return File.ReadAllBytes(filename).Bin2Raw().Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked);
             }
 
             if (printMode.SelectedIndex == 1)
             {
-                var temp = File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked, dotBlur.Checked);
-                temp.Save(TEMP_BITMAP_FILENAME);
-
-                return Image.FromFile(TEMP_BITMAP_FILENAME);
+                return File.ReadAllBytes(filename).Raw2Bmp((int)bitmapMargin.Value, bitmap2x.Checked);
             }
 
             if (printMode.SelectedIndex == 2)
@@ -173,5 +163,6 @@ namespace eReaderConverterGUI
 
             dialog.ShowDialog();
         }
+
     }
 }

@@ -32,7 +32,6 @@
             label2 = new Label();
             loggerBox = new TextBox();
             groupBox1 = new GroupBox();
-            dotBlur = new CheckBox();
             bitmap2x = new CheckBox();
             label5 = new Label();
             bitmapMargin = new NumericUpDown();
@@ -103,7 +102,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dotBlur);
             groupBox1.Controls.Add(bitmap2x);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(bitmapMargin);
@@ -116,16 +114,6 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "ドットコード設定";
-            // 
-            // dotBlur
-            // 
-            dotBlur.AutoSize = true;
-            dotBlur.Location = new Point(32, 167);
-            dotBlur.Name = "dotBlur";
-            dotBlur.Size = new Size(222, 36);
-            dotBlur.TabIndex = 15;
-            dotBlur.Text = "中間色を配置する";
-            dotBlur.UseVisualStyleBackColor = true;
             // 
             // bitmap2x
             // 
@@ -157,7 +145,7 @@
             bitmapMargin.Name = "bitmapMargin";
             bitmapMargin.Size = new Size(110, 39);
             bitmapMargin.TabIndex = 1;
-            bitmapMargin.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            bitmapMargin.Value = new decimal(new int[] { 4, 0, 0, 0 });
             // 
             // label4
             // 
@@ -414,7 +402,6 @@
         private Label label7;
         private NumericUpDown offsetX;
         private Label label8;
-        private CheckBox dotBlur;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private ComboBox convertMode;
